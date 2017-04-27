@@ -1,1 +1,1 @@
-# Xsmart-Remote
+# xSmart-Remote
