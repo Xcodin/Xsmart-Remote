@@ -1,4 +1,4 @@
-# import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 import logging
 from utils.Validator import Validate
 from time import sleep
@@ -11,7 +11,7 @@ class Action:
     def __init__(self):
         self._checker = Validate()
         self.actionType = self._checker.get_actiontype()
-        # GPIO.setmode(GPIO.BCM)
+        GPIO.setmode(GPIO.BCM)
         logging.debug("action Ready")
 
     def exec(self):
@@ -23,9 +23,9 @@ class Action:
     def blink(self):
         timer = self._checker.get_blinkTime()
         pin = self._checker.get_pinId()
-        # GPIO.set(pin, GPIO.output)
+        GPIO.set(pin, GPIO.output)
         logging.debug("on " + str(pin))
-        # GPIO.output(pin, GPIO.HIGH)
+        GPIO.output(pin, GPIO.HIGH)
         sleep(timer)
-        # GPIO.output(pin, GPIO.LOW)
+        GPIO.output(pin, GPIO.LOW)
         logging.debug("off " + str(pin))
